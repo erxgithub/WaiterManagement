@@ -1,5 +1,5 @@
 //
-//  WaiterViewController.h
+//  AddWaiterViewController.h
 //  StaffManagement
 //
 //  Created by Eric Gregor on 2018-03-30.
@@ -14,7 +14,7 @@
 
 @end
 
-@interface WaiterViewController : UIViewController
+@interface AddWaiterViewController : UIViewController
 
 @property (weak, nonatomic) id <WaiterProtocol> delegate;
 

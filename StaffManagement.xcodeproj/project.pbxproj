@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		588E6B30206EAE1200FA1F2A /* WaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B2F206EAE1200FA1F2A /* WaiterViewController.m */; };
+		588E6B30206EAE1200FA1F2A /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */; };
 		588E6B36206EBAF500FA1F2A /* ShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B35206EBAF500FA1F2A /* ShiftViewController.m */; };
+		588E6B3C206EC39A00FA1F2A /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
 		651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */; };
@@ -33,10 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		588E6B2E206EAE1200FA1F2A /* WaiterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaiterViewController.h; sourceTree = "<group>"; };
-		588E6B2F206EAE1200FA1F2A /* WaiterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaiterViewController.m; sourceTree = "<group>"; };
+		588E6B2E206EAE1200FA1F2A /* AddWaiterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
+		588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
 		588E6B34206EBAF500FA1F2A /* ShiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShiftViewController.h; sourceTree = "<group>"; };
 		588E6B35206EBAF500FA1F2A /* ShiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftViewController.m; sourceTree = "<group>"; };
+		588E6B3A206EC39A00FA1F2A /* AddShiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
+		588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,10 +108,12 @@
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
+				588E6B3A206EC39A00FA1F2A /* AddShiftViewController.h */,
+				588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */,
 				588E6B34206EBAF500FA1F2A /* ShiftViewController.h */,
 				588E6B35206EBAF500FA1F2A /* ShiftViewController.m */,
-				588E6B2E206EAE1200FA1F2A /* WaiterViewController.h */,
-				588E6B2F206EAE1200FA1F2A /* WaiterViewController.m */,
+				588E6B2E206EAE1200FA1F2A /* AddWaiterViewController.h */,
+				588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
@@ -261,8 +266,9 @@
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
-				588E6B30206EAE1200FA1F2A /* WaiterViewController.m in Sources */,
+				588E6B30206EAE1200FA1F2A /* AddWaiterViewController.m in Sources */,
 				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
+				588E6B3C206EC39A00FA1F2A /* AddShiftViewController.m in Sources */,
 				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
 			);
@@ -414,6 +420,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -426,6 +433,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

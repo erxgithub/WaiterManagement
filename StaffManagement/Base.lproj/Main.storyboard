@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Waiters-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -39,14 +40,14 @@
                             <constraint firstItem="idB-MD-rVO" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="fRN-6V-fdl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fe7-f7-FJj">
+                    <navigationItem key="navigationItem" title="Waiters" id="fe7-f7-FJj">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="Dgg-BQ-IRY">
                                 <connections>
                                     <segue destination="HSo-Pu-Ysv" kind="show" identifier="addWaiter" id="nbv-AS-78q"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="Dgu-OB-8ki">
+                            <barButtonItem title="Edit" id="Dgu-OB-8ki">
                                 <connections>
                                     <action selector="editButtonPressed:" destination="vXZ-lx-hvc" id="wFX-W4-TIj"/>
                                 </connections>
@@ -62,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="808" y="-623"/>
         </scene>
-        <!--Shift View Controller-->
+        <!--Shifts-->
         <scene sceneID="njk-hK-kA8">
             <objects>
                 <viewController id="7XB-0T-Rnw" customClass="ShiftViewController" sceneMemberID="viewController">
@@ -75,15 +76,129 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Shifts" id="Jmx-VM-aWk">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="cmO-Ws-Zmd">
+                                <connections>
+                                    <segue destination="VCi-wX-f8o" kind="show" identifier="addShift" id="hNQ-8u-tab"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="oM3-15-i7K"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bU-fn-a20" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="70"/>
         </scene>
-        <!--Waiter View Controller-->
+        <!--Add Shift-->
+        <scene sceneID="u0e-jy-2q6">
+            <objects>
+                <viewController id="VCi-wX-f8o" customClass="AddShiftViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ypr-Er-2CX"/>
+                        <viewControllerLayoutGuide type="bottom" id="OtX-L3-QvI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EF4-n1-oNK">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPz-c0-y7l">
+                                <rect key="frame" x="44" y="88" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cia-f1-kfv">
+                                <rect key="frame" x="106" y="88" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFi-ih-MJh">
+                                <rect key="frame" x="44" y="133" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-xj-vDE">
+                                <rect key="frame" x="44" y="406" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Vt-Lh-DAV">
+                                <rect key="frame" x="24" y="166" width="720" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="544133332.66004896">
+                                    <!--2018-03-30 20:08:52 +0000-->
+                                </date>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="nat-Hv-djZ">
+                                <rect key="frame" x="24" y="439" width="720" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="544133327.80064201">
+                                    <!--2018-03-30 20:08:47 +0000-->
+                                </date>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs7-uR-SS8">
+                                <rect key="frame" x="334" y="703" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="evh-y8-gqJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="i7z-iZ-0Ya"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GPz-c0-y7l" firstAttribute="top" secondItem="ypr-Er-2CX" secondAttribute="bottom" constant="24" id="2Wa-kD-PFs"/>
+                            <constraint firstAttribute="trailing" secondItem="nat-Hv-djZ" secondAttribute="trailing" constant="24" id="2rT-LS-DHp"/>
+                            <constraint firstItem="GPz-c0-y7l" firstAttribute="leading" secondItem="EF4-n1-oNK" secondAttribute="leadingMargin" constant="24" id="5Gb-UI-fXZ"/>
+                            <constraint firstItem="nat-Hv-djZ" firstAttribute="top" secondItem="LS9-xj-vDE" secondAttribute="bottom" constant="12" id="7lo-dn-tyv"/>
+                            <constraint firstItem="hs7-uR-SS8" firstAttribute="top" secondItem="nat-Hv-djZ" secondAttribute="bottom" constant="48" id="ES3-RQ-vvt"/>
+                            <constraint firstAttribute="trailing" secondItem="6Vt-Lh-DAV" secondAttribute="trailing" constant="24" id="Eit-BH-P0e"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lFi-ih-MJh" secondAttribute="trailingMargin" id="SaL-Vt-8QL"/>
+                            <constraint firstItem="6Vt-Lh-DAV" firstAttribute="top" secondItem="lFi-ih-MJh" secondAttribute="bottom" constant="12" id="TC2-o7-Jqw"/>
+                            <constraint firstItem="cia-f1-kfv" firstAttribute="leading" secondItem="GPz-c0-y7l" secondAttribute="trailing" constant="12" id="WJK-WH-hFJ"/>
+                            <constraint firstItem="lFi-ih-MJh" firstAttribute="leading" secondItem="EF4-n1-oNK" secondAttribute="leadingMargin" constant="24" id="WYd-9I-h65"/>
+                            <constraint firstItem="nat-Hv-djZ" firstAttribute="leading" secondItem="EF4-n1-oNK" secondAttribute="leading" constant="24" id="YRp-LO-VIj"/>
+                            <constraint firstItem="6Vt-Lh-DAV" firstAttribute="leading" secondItem="EF4-n1-oNK" secondAttribute="leading" constant="24" id="Yr2-sO-p20"/>
+                            <constraint firstItem="lFi-ih-MJh" firstAttribute="top" secondItem="GPz-c0-y7l" secondAttribute="bottom" constant="24" id="ceu-p1-dv1"/>
+                            <constraint firstItem="LS9-xj-vDE" firstAttribute="top" secondItem="6Vt-Lh-DAV" secondAttribute="bottom" constant="24" id="d7N-ZU-hoZ"/>
+                            <constraint firstItem="hs7-uR-SS8" firstAttribute="centerX" secondItem="EF4-n1-oNK" secondAttribute="centerX" id="iVh-ls-cAr"/>
+                            <constraint firstItem="LS9-xj-vDE" firstAttribute="leading" secondItem="EF4-n1-oNK" secondAttribute="leadingMargin" constant="24" id="naH-QB-ibY"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LS9-xj-vDE" secondAttribute="trailingMargin" id="pDQ-iE-3RZ"/>
+                            <constraint firstItem="cia-f1-kfv" firstAttribute="top" secondItem="ypr-Er-2CX" secondAttribute="bottom" constant="24" id="ry8-Tl-9Rk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cia-f1-kfv" secondAttribute="trailing" constant="20" symbolic="YES" id="zpw-vz-KV2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Shift" id="GGB-fg-oOc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QtQ-6A-KlQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796.875" y="69.140625"/>
+        </scene>
+        <!--Add Waiter-->
         <scene sceneID="EBP-qS-5hY">
             <objects>
-                <viewController id="HSo-Pu-Ysv" customClass="WaiterViewController" sceneMemberID="viewController">
+                <viewController id="HSo-Pu-Ysv" customClass="AddWaiterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oqk-cu-zk9"/>
                         <viewControllerLayoutGuide type="bottom" id="goM-be-Owh"/>
@@ -138,6 +253,7 @@
                             <constraint firstItem="gTo-hm-ZbS" firstAttribute="top" secondItem="xvA-Po-ZQj" secondAttribute="bottom" constant="24" id="mhz-Sb-PlC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Waiter" id="LGR-eT-yRb"/>
                     <connections>
                         <outlet property="nameTextField" destination="gTo-hm-ZbS" id="W4b-Qd-Mf2"/>
                     </connections>

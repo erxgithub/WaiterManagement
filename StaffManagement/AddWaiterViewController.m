@@ -1,20 +1,20 @@
 //
-//  WaiterViewController.m
+//  AddWaiterViewController.m
 //  StaffManagement
 //
 //  Created by Eric Gregor on 2018-03-30.
 //  Copyright © 2018 Derek Harasen. All rights reserved.
 //
 
-#import "WaiterViewController.h"
+#import "AddWaiterViewController.h"
 
-@interface WaiterViewController ()
+@interface AddWaiterViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @end
 
-@implementation WaiterViewController
+@implementation AddWaiterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
