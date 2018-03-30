@@ -27,7 +27,10 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
+    NSString *name = self.nameTextField.text;
     
+    [self.delegate addNewWaiter:name];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*

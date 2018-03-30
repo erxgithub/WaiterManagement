@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WaiterProtocol <NSObject>
+
+- (void)addNewWaiter:(NSString *)name;
+
+@end
+
 @interface WaiterViewController : UIViewController
+
+@property (weak, nonatomic) id <WaiterProtocol> delegate;
 
 @end

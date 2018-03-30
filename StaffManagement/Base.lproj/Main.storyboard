@@ -46,7 +46,11 @@
                                     <segue destination="HSo-Pu-Ysv" kind="show" identifier="addWaiter" id="nbv-AS-78q"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="Dgu-OB-8ki"/>
+                            <barButtonItem systemItem="edit" id="Dgu-OB-8ki">
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="vXZ-lx-hvc" id="wFX-W4-TIj"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
