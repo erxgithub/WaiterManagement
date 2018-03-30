@@ -55,11 +55,30 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="idB-MD-rVO" id="ugC-k3-Uqe"/>
+                        <segue destination="7XB-0T-Rnw" kind="show" identifier="waiterShifts" id="QCy-Go-5Qg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="808" y="-623"/>
+        </scene>
+        <!--Shift View Controller-->
+        <scene sceneID="njk-hK-kA8">
+            <objects>
+                <viewController id="7XB-0T-Rnw" customClass="ShiftViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gf4-77-TMM"/>
+                        <viewControllerLayoutGuide type="bottom" id="mTE-N9-Dbg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yPx-cc-68Q">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1bU-fn-a20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="70"/>
         </scene>
         <!--Waiter View Controller-->
         <scene sceneID="EBP-qS-5hY">

@@ -71,6 +71,8 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addWaiter"]) {
         [segue.destinationViewController setDelegate:self];
+    } else if ([segue.identifier isEqualToString:@"waiterShifts"]) {
+        
     }
 }
 
@@ -107,6 +109,11 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     Waiter *waiter = self.waiters[indexPath.row];
     cell.textLabel.text = waiter.name;
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"waiterShifts" sender:self];
 }
 
 @end
