@@ -1,13 +1,17 @@
 //
-//  AddShiftViewController.h
+//  Shift.m
 //  StaffManagement
 //
 //  Created by Eric Gregor on 2018-03-30.
 //  Copyright © 2018 Derek Harasen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Shift.h"
 
-@interface AddShiftViewController : UIViewController
+@implementation Shift
+
+@dynamic startTime;
+@dynamic finishTime;
+@dynamic waiter;
 
 @end

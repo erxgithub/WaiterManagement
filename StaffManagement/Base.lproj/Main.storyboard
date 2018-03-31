@@ -66,7 +66,7 @@
         <!--Shifts-->
         <scene sceneID="njk-hK-kA8">
             <objects>
-                <viewController id="7XB-0T-Rnw" customClass="ShiftViewController" sceneMemberID="viewController">
+                <viewController id="7XB-0T-Rnw" customClass="ShiftViewController" customModule="StaffManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gf4-77-TMM"/>
                         <viewControllerLayoutGuide type="bottom" id="mTE-N9-Dbg"/>
@@ -79,7 +79,7 @@
                                 <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShiftCell" rowHeight="90" id="k3m-I9-6Mw" customClass="ShiftTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShiftCell" rowHeight="90" id="k3m-I9-6Mw" customClass="ShiftTableViewCell" customModule="StaffManagement" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="768" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k3m-I9-6Mw" id="zzN-7Q-t7P">
@@ -89,8 +89,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="7XB-0T-Rnw" id="N2L-on-H4o"/>
-                                    <outlet property="delegate" destination="7XB-0T-Rnw" id="FsB-wY-o8b"/>
+                                    <outlet property="dataSource" destination="7XB-0T-Rnw" id="mbY-WR-6p6"/>
+                                    <outlet property="delegate" destination="7XB-0T-Rnw" id="lK5-ij-R1V"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -111,13 +111,13 @@
                             </barButtonItem>
                             <barButtonItem title="Edit" id="oM3-15-i7K">
                                 <connections>
-                                    <action selector="editButtonPressed:" destination="7XB-0T-Rnw" id="bbr-Tw-Mbt"/>
+                                    <action selector="editButtonPressed:" destination="7XB-0T-Rnw" id="6QN-Ur-BnF"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="FGO-zn-q3Z" id="4Kq-C6-rwq"/>
+                        <outlet property="tableView" destination="FGO-zn-q3Z" id="sKA-pr-Q0c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bU-fn-a20" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +127,7 @@
         <!--Add Shift-->
         <scene sceneID="u0e-jy-2q6">
             <objects>
-                <viewController id="VCi-wX-f8o" customClass="AddShiftViewController" sceneMemberID="viewController">
+                <viewController id="VCi-wX-f8o" customClass="AddShiftViewController" customModule="StaffManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ypr-Er-2CX"/>
                         <viewControllerLayoutGuide type="bottom" id="OtX-L3-QvI"/>
