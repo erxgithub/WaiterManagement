@@ -11,11 +11,15 @@ import UIKit
 @objc class ShiftViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameLabel: UILabel!
     
+    var waiter: Waiter?
+    var shifts: [Shift] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameLabel.text = waiter?.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +37,25 @@ import UIKit
         }
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "addShift" {
+            guard let addShiftViewController = segue.destination as? AddShiftViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            addShiftViewController.waiterName = waiter!.name
+
+        }
+
     }
-    */
-
+    
 }
-
 
 extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -55,7 +66,7 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return shifts.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -63,9 +74,12 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftCell", for: indexPath) as? ShiftTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftCell", for: indexPath) as? ShiftTableViewCell
+        else {
             fatalError("The dequeued cell is not an instance of UITableViewCell.")
         }
+        
+        let shift = shifts[indexPath.row]
 
         //    Waiter *waiter = self.waiters[indexPath.row];
         //    cell.textLabel.text = waiter.name;

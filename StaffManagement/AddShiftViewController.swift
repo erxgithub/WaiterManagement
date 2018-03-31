@@ -10,10 +10,18 @@ import UIKit
 
 @objc class AddShiftViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var startTimePicker: UIDatePicker!
+    @IBOutlet weak var finishTimePicker: UIDatePicker!
+    
+    var waiterName: String? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        nameLabel.text = waiterName
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +29,10 @@ import UIKit
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

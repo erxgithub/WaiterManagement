@@ -10,6 +10,7 @@
 
 @interface AddWaiterViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @end
@@ -18,7 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.nameLabel.text = self.restaurantName;
 }
 
 - (void)didReceiveMemoryWarning {

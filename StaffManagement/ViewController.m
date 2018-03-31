@@ -12,18 +12,27 @@
 #import "Waiter.h"
 #import "AddWaiterViewController.h"
 #import "AppDelegate.h"
+#import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
 @interface ViewController () <WaiterProtocol>
+
 @property IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @property (nonatomic, retain) NSArray *waiters;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Restaurant *currentRestaurant = [[RestaurantManager sharedManager]currentRestaurant];
+    self.nameLabel.text = currentRestaurant.name;
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     [self refreshTableView];
 }
@@ -70,13 +79,18 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addWaiter"]) {
-        [segue.destinationViewController setDelegate:self];
+        AddWaiterViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+        vc.restaurantName = self.nameLabel.text;
     } else if ([segue.identifier isEqualToString:@"waiterShifts"]) {
-        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Waiter *waiter = self.waiters[indexPath.row];
+        ShiftViewController *vc = [segue destinationViewController];
+        vc.waiter = waiter;
     }
 }
 
-#pragma mark - TableView Data Source
+#pragma mark - TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

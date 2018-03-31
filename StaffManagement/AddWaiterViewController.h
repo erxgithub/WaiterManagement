@@ -17,5 +17,6 @@
 @interface AddWaiterViewController : UIViewController
 
 @property (weak, nonatomic) id <WaiterProtocol> delegate;
+@property (weak, nonatomic) NSString *restaurantName;
 
 @end
