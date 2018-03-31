@@ -10,6 +10,8 @@
 
 @interface ShiftViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation ShiftViewController
@@ -24,6 +26,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)editButtonPressed:(id)sender {
+    if (self.tableView.isEditing) {
+        [sender setTitle:@"Edit"];
+        [self.tableView setEditing:NO animated:YES];
+    } else {
+        [sender setTitle:@"Done"];
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -33,5 +45,40 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - TableView Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (BOOL)tableView: tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        AppDelegate *appDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
+//        Restaurant *currentRestaurant = [[RestaurantManager sharedManager]currentRestaurant];
+//
+//        NSError *error = nil;
+//        Waiter *waiter = self.waiters[indexPath.row];
+//        [appDelegate.managedObjectContext deleteObject:waiter];
+//        [currentRestaurant removeStaffObject:waiter];
+//        [appDelegate.managedObjectContext save:&error];
+//        [self refreshTableView];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShiftCell" forIndexPath:indexPath];
+//    Waiter *waiter = self.waiters[indexPath.row];
+//    cell.textLabel.text = waiter.name;
+    return cell;
+}
 
 @end

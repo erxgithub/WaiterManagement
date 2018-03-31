@@ -10,6 +10,7 @@
 		588E6B30206EAE1200FA1F2A /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */; };
 		588E6B36206EBAF500FA1F2A /* ShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B35206EBAF500FA1F2A /* ShiftViewController.m */; };
 		588E6B3C206EC39A00FA1F2A /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */; };
+		588E6B3F206F003600FA1F2A /* ShiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B3E206F003600FA1F2A /* ShiftTableViewCell.m */; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
 		651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */; };
@@ -40,6 +41,8 @@
 		588E6B35206EBAF500FA1F2A /* ShiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftViewController.m; sourceTree = "<group>"; };
 		588E6B3A206EC39A00FA1F2A /* AddShiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
 		588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
+		588E6B3D206F003600FA1F2A /* ShiftTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShiftTableViewCell.h; sourceTree = "<group>"; };
+		588E6B3E206F003600FA1F2A /* ShiftTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftTableViewCell.m; sourceTree = "<group>"; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				588E6B3D206F003600FA1F2A /* ShiftTableViewCell.h */,
+				588E6B3E206F003600FA1F2A /* ShiftTableViewCell.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				588E6B3A206EC39A00FA1F2A /* AddShiftViewController.h */,
 				588E6B3B206EC39A00FA1F2A /* AddShiftViewController.m */,
@@ -263,6 +268,7 @@
 			files = (
 				588E6B36206EBAF500FA1F2A /* ShiftViewController.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
+				588E6B3F206F003600FA1F2A /* ShiftTableViewCell.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
