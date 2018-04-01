@@ -82,7 +82,7 @@ import UIKit
 
 extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: - Table view data source
+    //MARK: - TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

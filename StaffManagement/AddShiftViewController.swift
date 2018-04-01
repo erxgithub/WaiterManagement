@@ -24,14 +24,11 @@ protocol WaiterShiftDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         nameLabel.text = waiterName
         
         let dateFormatter = DateFormatter()
         
         startTimePicker.date = dateFormatter.calendar.date(bySetting: .minute, value: 0, of: Date())!
-        
         finishTimePicker.date = dateFormatter.calendar.date(bySetting: .minute, value: 0, of: Date())!
     }
 

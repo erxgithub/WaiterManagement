@@ -35,7 +35,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     self.nameLabel.text = currentRestaurant.name;
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
-    [self refreshTableView];
+    [self reloadWaiters];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +53,14 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     }
 }
 
+- (void)reloadWaiters {
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
+    self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Delegates
+
 - (void)addNewWaiter:(NSString *)name {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
@@ -67,16 +75,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [currentRestaurant addStaffObject:newWaiter];
     
     [appDelegate.managedObjectContext save:&error];
-    [self refreshTableView];
+    [self reloadWaiters];
 }
 
-- (void)refreshTableView {
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
-    self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    [self.tableView reloadData];
-}
-
-#pragma mark - Segues
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addWaiter"]) {
@@ -115,7 +117,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         [appDelegate.managedObjectContext deleteObject:waiter];
         [currentRestaurant removeStaffObject:waiter];
         [appDelegate.managedObjectContext save:&error];
-        [self refreshTableView];
+        [self reloadWaiters];
     }
 }
 
