@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol WaiterShiftDelegate {
+    func addWaiterShift(startTime: Date, finishTime: Date)
+}
+
 @objc class AddShiftViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var startTimePicker: UIDatePicker!
     @IBOutlet weak var finishTimePicker: UIDatePicker!
     
+    var delegate: WaiterShiftDelegate?
     var waiterName: String? = ""
     
     override func viewDidLoad() {
@@ -22,6 +27,12 @@ import UIKit
         // Do any additional setup after loading the view.
         
         nameLabel.text = waiterName
+        
+        let dateFormatter = DateFormatter()
+        
+        startTimePicker.date = dateFormatter.calendar.date(bySetting: .minute, value: 0, of: Date())!
+        
+        finishTimePicker.date = dateFormatter.calendar.date(bySetting: .minute, value: 0, of: Date())!
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,17 +41,14 @@ import UIKit
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
+        if delegate != nil {
+            let startTime = startTimePicker.date
+            let finishTime = finishTimePicker.date
+            
+            delegate?.addWaiterShift(startTime: startTime, finishTime: finishTime)
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

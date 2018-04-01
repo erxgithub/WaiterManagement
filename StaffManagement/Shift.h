@@ -12,8 +12,8 @@
 
 @interface Shift : NSManagedObject
 
+@property (nonatomic, retain) Waiter *waiter;
 @property (nonatomic, retain) NSDate *startTime;
 @property (nonatomic, retain) NSDate *finishTime;
-@property (nonatomic, retain) Waiter *waiter;
 
 @end

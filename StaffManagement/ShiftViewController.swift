@@ -8,18 +8,20 @@
 
 import UIKit
 
-@objc class ShiftViewController: UIViewController {
+@objc class ShiftViewController: UIViewController, WaiterShiftDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     
     var waiter: Waiter?
-    var shifts: [Shift] = []
+    var shifts: [Any]? = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nameLabel.text = waiter?.name
+        
+        shifts = Array(waiter!.shifts).sorted(by: {($0 as AnyObject).startTime < ($1 as AnyObject).startTime})
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +39,33 @@ import UIKit
         }
     }
     
+    // MARK: - Delegates
+    
+    func addWaiterShift(startTime: Date, finishTime: Date) {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let shiftEntity = NSEntityDescription.entity(forEntityName: "Shift", in: appDelegate?.managedObjectContext ?? NSManagedObjectContext())
+        let newShift = Shift(entity: shiftEntity!, insertInto: appDelegate?.managedObjectContext)
+        
+        newShift.startTime = startTime
+        newShift.finishTime = finishTime
+        newShift.waiter = waiter
+        
+        waiter?.addShiftObject(newShift)
+        
+        do {
+            try appDelegate?.managedObjectContext.save()
+        }
+        catch {
+            print(error)
+        }
+        
+        shifts?.append(newShift)
+        tableView.reloadData()
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == "addShift" {
@@ -49,10 +73,9 @@ import UIKit
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
+            addShiftViewController.delegate = self
             addShiftViewController.waiterName = waiter!.name
-
         }
-
     }
     
 }
@@ -66,7 +89,7 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shifts.count
+        return shifts!.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -79,65 +102,50 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of UITableViewCell.")
         }
         
-        let shift = shifts[indexPath.row]
+        let shift = shifts![indexPath.row]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let startTime = dateFormatter.string(from: (shift as AnyObject).startTime)
+        
+        let finishTime = dateFormatter.string(from: (shift as AnyObject).finishTime)
 
-        //    Waiter *waiter = self.waiters[indexPath.row];
-        //    cell.textLabel.text = waiter.name;
+        cell.startTime.text = startTime
+        cell.startTime.sizeToFit()
+        
+        cell.finishTime.text = finishTime
+        cell.finishTime.sizeToFit()
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor(red: 214.0/255.0, green: 214.0/255.0, blue: 214.0/255.0, alpha: 1.0)
+        }  else {
+            cell.backgroundColor = UIColor.white
+        }
 
-//        //***
-//        let workout = workouts[indexPath.row]
-//
-//        var duration = 0.0
-//        let count = workout.sets?.count ?? 0
-//        for workoutSet in workout.sets! {
-//            let ws = workoutSet as! Set
-//            duration += ws.seconds
-//        }
-//
-//        cell.workoutTitleLabel.text = workout.title?.uppercased()
-//        cell.setCountLabel.text = "SETS - \(count)"
-//        cell.totalDurationLabel.text = timeString(interval: duration, format: "")
-//
-//        //***
-//        //        let workout = workouts![indexPath.row]
-//        //
-//        //        let duration = workout.sets?.reduce(0) { $0 + $1.seconds }
-//        //
-//        //        cell.workoutTitleLabel.text = workout.title
-//        //        cell.setCountLabel.text = "\(workout.sets?.count ?? 0)"
-//        //        cell.totalDurationLabel.text = "\(duration ?? 0.0)"
-//        //***
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 118.0/255.0, green: 214.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        cell.selectedBackgroundView = backgroundView
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //        AppDelegate *appDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
-            //        Restaurant *currentRestaurant = [[RestaurantManager sharedManager]currentRestaurant];
-            //
-            //        NSError *error = nil;
-            //        Waiter *waiter = self.waiters[indexPath.row];
-            //        [appDelegate.managedObjectContext deleteObject:waiter];
-            //        [currentRestaurant removeStaffObject:waiter];
-            //        [appDelegate.managedObjectContext save:&error];
-            //        [self refreshTableView];
-
-            //            context.delete(workouts[indexPath.row])
-//
-//            do {
-//                try context.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nserror = error as NSError
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//            }
-//
-//            fetchWorkout()
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            let shift = shifts![indexPath.row]
+            appDelegate?.managedObjectContext.delete(shift as! NSManagedObject)
+            waiter?.removeShiftObject(shift as! NSManagedObject)
+            
+            do {
+                try appDelegate?.managedObjectContext.save()
+            } catch let error as NSError {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+            
+            shifts?.remove(at: indexPath.row)
+            tableView.reloadData()
         }
-        
     }
     
 }

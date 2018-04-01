@@ -10,8 +10,8 @@
 
 @implementation Shift
 
+@dynamic waiter;
 @dynamic startTime;
 @dynamic finishTime;
-@dynamic waiter;
 
 @end

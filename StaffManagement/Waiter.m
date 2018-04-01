@@ -20,4 +20,8 @@
     [self.shifts addObject:value];
 }
 
+- (void)removeShiftObject:(NSManagedObject *)value {
+    [self.shifts removeObject:value];
+}
+
 @end

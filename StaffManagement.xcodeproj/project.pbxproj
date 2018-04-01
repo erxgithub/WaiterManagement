@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58769EE720705F1D0090FD47 /* WaiterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58769EE620705F1D0090FD47 /* WaiterTableViewCell.m */; };
 		588E6B30206EAE1200FA1F2A /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */; };
 		588E6B42206F1AE900FA1F2A /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B41206F1AE900FA1F2A /* ShiftViewController.swift */; };
 		588E6B44206F1B4B00FA1F2A /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E6B43206F1B4B00FA1F2A /* ShiftTableViewCell.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58769EE520705F1D0090FD47 /* WaiterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaiterTableViewCell.h; sourceTree = "<group>"; };
+		58769EE620705F1D0090FD47 /* WaiterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaiterTableViewCell.m; sourceTree = "<group>"; };
 		588E6B2E206EAE1200FA1F2A /* AddWaiterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
 		588E6B2F206EAE1200FA1F2A /* AddWaiterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
 		588E6B40206F1AE900FA1F2A /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				588E6B43206F1B4B00FA1F2A /* ShiftTableViewCell.swift */,
 				588E6B45206F1B8100FA1F2A /* AddShiftViewController.swift */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
+				58769EE520705F1D0090FD47 /* WaiterTableViewCell.h */,
+				58769EE620705F1D0090FD47 /* WaiterTableViewCell.m */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
@@ -273,6 +278,7 @@
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
+				58769EE720705F1D0090FD47 /* WaiterTableViewCell.m in Sources */,
 				588E6B44206F1B4B00FA1F2A /* ShiftTableViewCell.swift in Sources */,
 				588E6B30206EAE1200FA1F2A /* AddWaiterViewController.m in Sources */,
 				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,

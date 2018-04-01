@@ -12,6 +12,7 @@
 #import "Waiter.h"
 #import "AddWaiterViewController.h"
 #import "AppDelegate.h"
+#import "WaiterTableViewCell.h"
 #import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
@@ -119,9 +120,21 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    WaiterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WaiterCell" forIndexPath:indexPath];
+    
     Waiter *waiter = self.waiters[indexPath.row];
-    cell.textLabel.text = waiter.name;
+    cell.nameLabel.text = waiter.name;
+
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithRed:214.0/255.0 green:214.0/255.0 blue:214.0/255.0 alpha:1.0];
+    }  else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = [UIColor colorWithRed:118.0/255.0 green:214.0/255.0 blue:255.0/255.0 alpha:1.0];
+    cell.selectedBackgroundView = backgroundView;
+
     return cell;
 }
 
