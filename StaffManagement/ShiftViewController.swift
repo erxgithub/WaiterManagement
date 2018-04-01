@@ -55,8 +55,8 @@ import UIKit
         do {
             try appDelegate?.managedObjectContext.save()
         }
-        catch {
-            print(error)
+        catch let error as NSError {
+            fatalError("Error: \(error.localizedDescription)")
         }
         
         shifts?.append(newShift)
@@ -105,10 +105,9 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
         let shift = shifts![indexPath.row]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
         
         let startTime = dateFormatter.string(from: (shift as AnyObject).startTime)
-        
         let finishTime = dateFormatter.string(from: (shift as AnyObject).finishTime)
 
         cell.startTime.text = startTime
